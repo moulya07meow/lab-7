@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ========================================================
+       SPECIFICATION (a): Title should be about mycollege
+       ======================================================== -->
+  <title>MyCollege - Premier Institute of Technology & Higher Studies</title>
+
+  <!-- Google Fonts for diverse typefaces -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Fira+Code:wght@600&family=Montserrat:wght@400;700&family=Oswald:wght@700&family=Pacifico&family=Playfair+Display:ital,wght@1,700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ========================================================
+       SPECIFICATION (b): Put the image in the background
+       ======================================================== */
+    body {
+      min-height: 100vh;
+      /* Background campus image with dark tint overlay for high text contrast */
+      background: 
+        linear-gradient(rgba(10, 25, 47, 0.85), rgba(15, 23, 42, 0.90)),
+        url('campus_background.jpg'),
+        url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #f1f5f9;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ========================================================
+       SPECIFICATION (c): College name at the top in large text
+       followed by address in smaller size
+       ======================================================== */
+    .header-section {
+      text-align: center;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(8px);
+      padding: 40px 20px 25px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      margin-bottom: 25px;
+    }
+
+    /* College Name in Large Text */
+    .college-name {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+      line-height: 1.2;
+    }
+
+    /* Address in Smaller Size */
+    .college-address {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #94a3b8;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+    }
+
+    .college-subtext {
+      font-size: 0.85rem;
+      color: #38bdf8;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ========================================================
+       SPECIFICATION (e): Scrolling text with a message for
+       upcoming exam dates, events etc.
+       ======================================================== */
+    .ticker-bar {
+      display: flex;
+      align-items: center;
+      background: #0f172a;
+      border: 1px solid #ef4444;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 35px;
+      box-shadow: 0 4px 15px rgba(239, 68, 68, 0.25);
+    }
+
+    .ticker-title {
+      background: #ef4444;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 12px 18px;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .ticker-marquee {
+      font-size: 0.95rem;
+      color: #fef08a;
+      font-weight: 500;
+      padding: 8px 0;
+    }
+
+    /* ========================================================
+       SPECIFICATION (d): Courses offered, each in a different
+       COLOR, STYLE, and TYPEFACE
+       ======================================================== */
+    .courses-section {
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(8px);
+      padding: 35px 30px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .section-heading {
+      font-size: 2rem;
+      color: #f8fafc;
+      text-align: center;
+      margin-bottom: 25px;
+      border-bottom: 2px solid rgba(56, 189, 248, 0.5);
+      padding-bottom: 10px;
+    }
+
+    .course-list {
+      list-style-type: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .course-item {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .course-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* --- Course 1: Cyan | Italic Bold | Monospace (Fira Code) --- */
+    .course-1 {
+      color: #00e5ff;
+      font-style: italic;
+      font-weight: 700;
+      font-family: 'Fira Code', 'Courier New', Courier, monospace;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+    }
+
+    /* --- Course 2: Orange | Heavy Bold Spaced | Oswald / Impact (Sans-Serif) --- */
+    .course-2 {
+      color: #ff6d00;
+      font-style: normal;
+      font-weight: 800;
+      letter-spacing: 2px;
+      font-family: 'Oswald', 'Impact', 'Arial Black', sans-serif;
+      font-size: 1.35rem;
+      text-transform: uppercase;
+    }
+
+    /* --- Course 3: Mint Green | Oblique with Wavy Underline | Trebuchet MS --- */
+    .course-3 {
+      color: #00e676;
+      font-style: oblique 15deg;
+      font-weight: 600;
+      text-decoration: underline wavy #00e676;
+      font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+      font-size: 1.25rem;
+    }
+
+    /* --- Course 4: Golden Yellow | Small-Caps Serif | Georgia --- */
+    .course-4 {
+      color: #ffd600;
+      font-style: normal;
+      font-weight: 600;
+      font-variant: small-caps;
+      letter-spacing: 1.5px;
+      font-family: 'Georgia', 'Palatino', serif;
+      font-size: 1.3rem;
+    }
+
+    /* --- Course 5: Orchid Purple | Elegant Italic | Playfair Display (Serif) --- */
+    .course-5 {
+      color: #e040fb;
+      font-style: italic;
+      font-weight: 700;
+      font-family: 'Playfair Display', 'Times New Roman', serif;
+      font-size: 1.35rem;
+    }
+
+    /* --- Course 6: Rose Coral | Double Underlined Bold | Lucida Console (Monospace) --- */
+    .course-6 {
+      color: #ff4081;
+      font-style: normal;
+      font-weight: 700;
+      text-decoration: underline double #ff4081;
+      font-family: 'Lucida Console', Monaco, monospace;
+      font-size: 1.15rem;
+    }
+
+    /* --- Course 7: Sky Blue | Roman Inscription Tracking | Cinzel (Serif) --- */
+    .course-7 {
+      color: #38bdf8;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-family: 'Cinzel', 'Copperplate', serif;
+      font-size: 1.2rem;
+    }
+
+    /* --- Course 8: Lime Green | Bold Italic with Border Bar | Montserrat --- */
+    .course-8 {
+      color: #a3e635;
+      font-style: italic;
+      font-weight: 700;
+      padding-left: 8px;
+      border-left: 3px solid #a3e635;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.25rem;
+    }
+
+    /* --- Course 9: Amber Gold | Cursive Freehand Script | Pacifico --- */
+    .course-9 {
+      color: #fbbf24;
+      font-style: normal;
+      font-weight: 400;
+      font-family: 'Pacifico', 'Brush Script MT', cursive;
+      font-size: 1.35rem;
+    }
+
+    /* Style specs badge explaining properties */
+    .badge {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.78rem;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 35px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- ========================================================
+         (c) College Name (Large) & Address (Smaller)
+         ======================================================== -->
+    <header class="header-section">
+      <h1 class="college-name">MYCOLLEGE INSTITUTE OF TECHNOLOGY</h1>
+      <p class="college-address">
+        Knowledge City Campus, 42 Academic Boulevard, Outer Ring Road, Bengaluru, Karnataka - 560001
+      </p>
+      <p class="college-subtext">NAAC 'A++' Accredited &bull; Approved by AICTE, New Delhi</p>
+    </header>
+
+    <!-- ========================================================
+         (e) Scrolling Text for Exams and Events
+         ======================================================== -->
+    <div class="ticker-bar">
+      <div class="ticker-title">📢 ANNOUNCEMENTS</div>
+      <marquee class="ticker-marquee" behavior="scroll" direction="left" scrollamount="7" onmouseover="this.stop();" onmouseout="this.start();">
+        🚨 <strong>Final Semester Theory Examinations:</strong> Commence on <strong>November 16, 2026</strong>. Hall tickets available for download from Nov 5. &nbsp;&nbsp;|&nbsp;&nbsp;
+        📝 <strong>Exam Form Submission Deadline:</strong> Last date to submit forms without fine is <strong>October 28, 2026 (5:00 PM)</strong>. &nbsp;&nbsp;|&nbsp;&nbsp;
+        🏆 <strong>Annual National Tech Fest 'INNOVENT 2026':</strong> Scheduled for <strong>November 24-26, 2026</strong> with ₹5,00,000 in prizes! &nbsp;&nbsp;|&nbsp;&nbsp;
+        💼 <strong>Campus Placement Drive 2026-27:</strong> Over 50+ visiting recruiters starting from <strong>October 30, 2026</strong>.
+      </marquee>
+    </div>
+
+    <!-- ========================================================
+         (d) Courses Offered in Different Color, Style, and Typeface
+         ======================================================== -->
+    <main class="courses-section">
+      <h2 class="section-heading">Courses Offered</h2>
+
+      <ul class="course-list">
+        
+        <!-- Course 1 -->
+        <li class="course-item">
+          <div class="course-1">1. Computer Science &amp; Engineering</div>
+          <span class="badge">
+            <strong>Color:</strong> Cyan (<code>#00e5ff</code>) | 
+            <strong>Style:</strong> Italic, Bold, Uppercase | 
+            <strong>Typeface:</strong> Fira Code (Monospace)
+          </span>
+        </li>
+
+        <!-- Course 2 -->
+        <li class="course-item">
+          <div class="course-2">2. Mechanical &amp; Aerospace Engineering</div>
+          <span class="badge">
+            <strong>Color:</strong> Orange (<code>#ff6d00</code>) | 
+            <strong>Style:</strong> Heavy Bold, Spaced Caps | 
+            <strong>Typeface:</strong> Oswald / Impact (Sans-Serif)
+          </span>
+        </li>
+
+        <!-- Course 3 -->
+        <li class="course-item">
+          <div class="course-3">3. Artificial Intelligence &amp; Data Science</div>
+          <span class="badge">
+            <strong>Color:</strong> Mint Green (<code>#00e676</code>) | 
+            <strong>Style:</strong> Oblique Slant, Wavy Underline | 
+            <strong>Typeface:</strong> Trebuchet MS (Sans-Serif)
+          </span>
+        </li>
+
+        <!-- Course 4 -->
+        <li class="course-item">
+          <div class="course-4">4. Electronics &amp; Communication</div>
+          <span class="badge">
+            <strong>Color:</strong> Golden Yellow (<code>#ffd600</code>) | 
+            <strong>Style:</strong> Small-Caps, Semi-Bold | 
+            <strong>Typeface:</strong> Georgia (Serif)
+          </span>
+        </li>
+
+        <!-- Course 5 -->
+        <li class="course-item">
+          <div class="course-5">5. Master of Business Administration (MBA)</div>
+          <span class="badge">
+            <strong>Color:</strong> Orchid Purple (<code>#e040fb</code>) | 
+            <strong>Style:</strong> High-Contrast Italic | 
+            <strong>Typeface:</strong> Playfair Display (Serif)
+          </span>
+        </li>
+
+        <!-- Course 6 -->
+        <li class="course-item">
+          <div class="course-6">6. Biotechnology &amp; Genetic Engineering</div>
+          <span class="badge">
+            <strong>Color:</strong> Rose Coral (<code>#ff4081</code>) | 
+            <strong>Style:</strong> Double Underline, Bold | 
+            <strong>Typeface:</strong> Lucida Console (Monospace)
+          </span>
+        </li>
+
+        <!-- Course 7 -->
+        <li class="course-item">
+          <div class="course-7">7. Bachelor of Architecture (B.Arch)</div>
+          <span class="badge">
+            <strong>Color:</strong> Sky Blue (<code>#38bdf8</code>) | 
+            <strong>Style:</strong> Roman Inscription, Spaced | 
+            <strong>Typeface:</strong> Cinzel (Serif)
+          </span>
+        </li>
+
+        <!-- Course 8 -->
+        <li class="course-item">
+          <div class="course-8">8. Civil &amp; Environmental Engineering</div>
+          <span class="badge">
+            <strong>Color:</strong> Lime Green (<code>#a3e635</code>) | 
+            <strong>Style:</strong> Bold Italic with Bar Accent | 
+            <strong>Typeface:</strong> Montserrat (Sans-Serif)
+          </span>
+        </li>
+
+        <!-- Course 9 -->
+        <li class="course-item">
+          <div class="course-9">9. Media Arts &amp; Creative Technologies</div>
+          <span class="badge">
+            <strong>Color:</strong> Amber (<code>#fbbf24</code>) | 
+            <strong>Style:</strong> Freehand Script | 
+            <strong>Typeface:</strong> Pacifico (Cursive)
+          </span>
+        </li>
+
+      </ul>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 MyCollege. All Rights Reserved. Contact: admissions@mycollege.edu | Ph: +91 (80) 2890-4500</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
